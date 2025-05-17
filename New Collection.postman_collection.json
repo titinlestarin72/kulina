@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "24beffb7-98a6-4241-97a8-4dab3fef9982",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34431711"
+	},
+	"item": [
+		{
+			"name": "https://dummyjson.com/users/add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 or 201\", function () {\r",
+							"  pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response contains correct firstName\", function () {\r",
+							"  pm.expect(pm.response.json().firstName).to.eql(\"Dean\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"Dean\",\r\n  \"lastName\": \"Charley\",\r\n  \"age\": 22,\r\n  \"occupation\": \"Quality Assurance\",\r\n  \"hobbies\": [\"Cooking\"],\r\n  \"gender\": \"female\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummyjson.com/users/add",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"users",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
